@@ -1,3 +1,4 @@
+/* création de la base de donnée */
 CREATE DATABASE IF NOT EXISTS ComplexeCinema
 DEFAULT CHARACTER SET utf8mb4
 DEFAULT COLLATE utf8mb4_unicode_ci;
@@ -5,6 +6,7 @@ DEFAULT COLLATE utf8mb4_unicode_ci;
 
 USE ComplexeCinema;
 
+/* création des tables */
 CREATE TABLE IF NOT EXISTS film(
     id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
     titre VARCHAR(100) NOT NULL,
@@ -42,6 +44,7 @@ CREATE TABLE IF NOT EXISTS Utilisateur(
     mot_de_passe VARCHAR(255) NOT NULL
 ) Engine=innodb;
 
+/* table relationnelle entre Cinema et Utilisateur */
 CREATE TABLE IF NOT EXISTS Cinema_Utilisateur(
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     cinema_id INT NOT NULL,
@@ -90,6 +93,7 @@ CREATE TABLE IF NOT EXISTS ticket(
     REFERENCES Utilisateur(id)
 ) Engine=innodb;
 
+/* Insertion des fixtures */
 INSERT INTO Film (id, titre, description, genre)
 VALUES
     (1, 'Le Parrain', 'Le patriarche de la famille Corleone tente de transmettre son pouvoir à son fils.', 'Drame'),

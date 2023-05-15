@@ -163,3 +163,11 @@ INSERT INTO Ticket(id,seance_id_fk, prix_id_fk, utilisateur_id_fk)
 VALUES
     (1, 2, 3, 4),
     (2, 1, 1, 4);
+
+/* Modification ajouter dans la base de donnée*/
+
+ALTER TABLE Utilisateur ADD COLUMN telephone VARCHAR;
+
+/* Modification de la base de donnée*/
+
+ALTER TABLE cinema MODIFY telephone VARCHAR(15);
